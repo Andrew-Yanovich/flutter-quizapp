@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quizapp/services/auth.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -6,7 +7,16 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        title: const Text('Profile'),
+      ),
+      body: ElevatedButton(
+        child: Text('SignOut'),
+        onPressed: () async {
+          await AuthService().signOut();
+          Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+        },
+      ),
     );
   }
 
