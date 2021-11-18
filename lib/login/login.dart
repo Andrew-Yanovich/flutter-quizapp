@@ -19,11 +19,17 @@ class LoginScreen extends StatelessWidget {
             ),
             Flexible(
               child: LoginButton(
-                  color: Colors.deepPurple,
-                  icon: FontAwesomeIcons.userNinja,
-                  text: 'Continue as a Guest',
-                  loginMethod: AuthService().anonLogin,
+                color: Colors.deepPurple,
+                icon: FontAwesomeIcons.userNinja,
+                text: 'Continue as a Guest',
+                loginMethod: AuthService().anonLogin,
               ),
+            ),
+            LoginButton(
+              color: Colors.blue,
+              icon: FontAwesomeIcons.google,
+              text: 'Sign in with Google',
+              loginMethod: AuthService().googleLogin,
             )
           ],
         ),
@@ -38,13 +44,13 @@ class LoginButton extends StatelessWidget {
   final String text;
   final Function loginMethod;
 
-  const LoginButton({
-    Key? key,
-    required this.color,
-    required this.icon,
-    required this.text,
-    required this.loginMethod
-  }) : super(key: key);
+  const LoginButton(
+      {Key? key,
+      required this.color,
+      required this.icon,
+      required this.text,
+      required this.loginMethod})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +67,10 @@ class LoginButton extends StatelessWidget {
           backgroundColor: color,
         ),
         onPressed: () => loginMethod(),
-        label: Text(text, textAlign: TextAlign.center,),
+        label: Text(
+          text,
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
