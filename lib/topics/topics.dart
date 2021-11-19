@@ -4,6 +4,7 @@ import 'package:flutter_quizapp/services/firestore.dart';
 import 'package:flutter_quizapp/services/models.dart';
 import 'package:flutter_quizapp/shared/bottom_nav.dart';
 import 'package:flutter_quizapp/shared/error.dart';
+import 'package:flutter_quizapp/topics/topic_item.dart';
 
 class TopicsScreen extends StatelessWidget {
   const TopicsScreen({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class TopicsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               crossAxisSpacing: 10.0,
               crossAxisCount: 2,
-              children: topics.map((topic) => Text(topic.title)).toList(),
+              children: topics.map((topic) => TopicItem(topic: topic)).toList(),
             ),
             bottomNavigationBar: const BottomNavBar(),
           );
