@@ -6,6 +6,8 @@ import 'package:flutter_quizapp/shared/bottom_nav.dart';
 import 'package:flutter_quizapp/shared/error.dart';
 import 'package:flutter_quizapp/topics/topic_item.dart';
 
+import 'drawer.dart';
+
 class TopicsScreen extends StatelessWidget {
   const TopicsScreen({Key? key}) : super(key: key);
 
